@@ -1,3 +1,48 @@
+// Next/previous controls
+function plusSlides(n, idx=0) {
+    slideIndex[idx] += n;
+    showSlides(slideIndex[idx], idx=idx);
+}
+
+// Thumbnail image controls
+function currentSlide(n, idx=0) {
+    slideIndex[idx] = n;
+    showSlides(slideIndex[idx], idx=idx);
+}
+
+function showSlides(n, idx=0) {
+let i;
+let slides = document.getElementsByClassName(`video-container slide-index-${idx}`);
+let dots = document.getElementsByClassName(`dot slide-index-${idx}`);
+if (n > slides.length) {slideIndex[idx] = 1}
+if (n < 1) {slideIndex[idx] = slides.length}
+for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+}
+for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+}
+slides[slideIndex[idx]-1].style.display = "block";
+dots[slideIndex[idx]-1].className += " active";
+}
+
+function toggleInstructionVideo() {
+    instrVideoShow = !instrVideoShow;
+
+    let instrs = document.getElementsByClassName("instructional-video")
+    for (let i = 0; i < instrs.length; i++) {
+       instrs[i].style.display = instrVideoShow ? "unset" : "none";
+    }
+
+    let open_button = document.getElementById("open-video")
+    let close_button = document.getElementById("close-video")
+
+    open_button.style.display = instrVideoShow ? "none" : "unset"
+    close_button.style.display = instrVideoShow ? "unset" : "none"
+}
+
+const slideIndex = [1, 1, 1, 1];
+let instrVideoShow = false;
 
 $(document).ready(function() {
     var editor = CodeMirror.fromTextArea(document.getElementById("bibtex"), {
@@ -37,4 +82,19 @@ $(document).ready(function() {
     
     
 //     window.requestAnimationFrame(scrollPlay);
+
+let videos = document.getElementsByTagName("video");
+
+// make all videos 2x
+for (let index = 0; index < videos.length; index++) {
+    const video = videos[index];
+    if ("normal-speed" != video.className) {
+        video.playbackRate = 2.0;   
+    }
+}
+
+for (let index = 0; index < slideIndex.length; index++) {
+    showSlides(slideIndex[index], idx=index);
+}
+
 });

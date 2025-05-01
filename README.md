@@ -1,1 +1,1 @@
-The website for RT-H: Action Hierarchies Using Language
+The website for Cross-Embodiment Generalization via Behavior-Aligned Representations 
