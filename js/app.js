@@ -45,11 +45,14 @@ const slideIndex = [1, 1, 1, 1];
 let instrVideoShow = false;
 
 $(document).ready(function() {
-    var editor = CodeMirror.fromTextArea(document.getElementById("bibtex"), {
-        lineNumbers: false,
-        lineWrapping: true,
-        readOnly:true
-    });
+    var targetTextArea = document.getElementById("bibtex");
+    if (targetTextArea) {
+        var editor = CodeMirror.fromTextArea(targetTextArea, {
+            lineNumbers: false,
+            lineWrapping: true,
+            readOnly:true
+        });
+    }
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     });
