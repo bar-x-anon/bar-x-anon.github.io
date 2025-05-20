@@ -13,7 +13,7 @@
     <!-- <base href="/"> -->
 
         <!--FACEBOOK-->
-    <meta property="og:image" content="https://bar-x-anon.github.io/img/BARX/barx_method_v2.jpeg">
+    <meta property="og:image" content="https://bar-x-anon.github.io/img/BARX/barx_figure_v3.jpeg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="682">
     <meta property="og:image:height" content="682">
@@ -206,13 +206,13 @@
         <div style="width: 90%; margin: 30px auto 0;">
             <div style="display: flex; flex-direction: column; align-items: center;">
                 
-                <a href="https://bar-x-anon.github.io/img/BARX/barx_method_v2.jpeg" target="_blank" style="display: flex; justify-content: center; width: 100%; margin-top: -60px;"> <!-- margin-top: -80px; -->
+                <a href="https://bar-x-anon.github.io/img/BARX/barx_figure_v3.jpeg" target="_blank" style="display: flex; justify-content: center; width: 100%; margin-top: -60px; text-decoration: none;"> <!-- margin-top: -80px; -->
                     <video id="methodVideo" autoplay muted playsinline style="width: 120%; height: auto;"> <!-- Adjust this width percentage to resize the video -->
-                        <source src="img/videos/barx_figures.mp4" type="video/mp4">
+                        <source src="img/videos/barx_figures_compressed_18_speedup.mp4" type="video/mp4">
                         <!-- <img src="img/BARX/barx_method_v1.png" alt="BARX method visualization" style="width: 100%; height: auto;"> -->
                     </video>
                 </a>
-                <div style="margin-top: 0px; text-align: left; width: 100%;">
+                <div style="margin-top: 20px; text-align: left; width: 100%;">
                     <p style="font-size: 1.0em; line-height: 1.4; color: #555; font-style: italic;">
                         <b>Left</b>: We consider cross-embodiment datasets of both simulated and real-world robots. We then
                         extract behavior-aligned representations: language motions via heuristics using end effector pose deltas, end-effector traces via segmentation models, and bounding boxes via Grounding DINO. 
@@ -395,7 +395,7 @@
                         For our simulation experiments, we adapt our models to the Jaco and the Panda.
                         The baselines make progress on the tasks, such as moving the gripper to the target object, but often fail to complete more precise motions like grasping the object in the correct orientation.
                         BARX, on the other hand, can complete these more precise motions with a higher success rate.
-                        We find that BARX improves the success rate over the cross-embodiment baseline on average by <b>16.0%</b>.
+                        BARX improves the success rate over the cross-embodiment baseline on average by <b>16.0%</b>.
                      </p>
                     <div class="task-carousel">
                         <!-- Video Thumbnails - Replace sources with your own videos -->
@@ -463,7 +463,7 @@
                         This is especially challenging because we have to deal with the sim-to-real gap in addition to the cross-embodiment gap.
                         We found that training with the representations was particularly beneficial for the <i>PnP Sink to Counter</i> task. 
                         The target was difficult to spot in certain locations, so using representations such as bounding boxes helped the model locate the object.
-                        We find that BARX improves the success rate over the cross-embodiment baseline on average by <b>28.3%</b>.
+                        BARX improves the task progress over the cross-embodiment baseline on average by <b>28.3%</b>.
                     </p>
                     <div class="task-block" id="task-2">
                         <div class="task-carousel">
