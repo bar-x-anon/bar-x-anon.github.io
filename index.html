@@ -13,8 +13,8 @@
     <!-- <base href="/"> -->
 
         <!--FACEBOOK-->
-    <meta property="og:image" content="https://bar-x-anon.github.io/img/BARX/barx_method_v1.png">
-    <meta property="og:image:type" content="image/png">
+    <meta property="og:image" content="https://bar-x-anon.github.io/img/BARX/barx_method_v2.jpeg">
+    <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="682">
     <meta property="og:image:height" content="682">
     <meta property="og:type" content="website" />
@@ -69,9 +69,11 @@
             font-weight: bold;
             text-align: center;
             font-size: 2.2em;
+            margin-bottom: 1.5rem;
         }
         h3 {
             font-size: 1.8em;
+            margin-bottom: 1.2rem;
         }
         h4 {
             font-size: 1.5em;
@@ -79,6 +81,7 @@
         p {
             font-size: 1.2em;
             line-height: 1.6;
+            margin-bottom: 2rem;
         }
         .video-caption {
             margin-top: 8px;
@@ -88,7 +91,7 @@
             min-height: 40px;
         }
         .task-title {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             font-weight: 600;
             font-size: 1.6em;
         }
@@ -122,12 +125,13 @@
             border-radius: 8px; /* Apply radius to video if thumb has no background */
         }
         .task-block {
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
         .task-carousel {
-            margin-top: 1rem;
+            margin-top: 2.5rem;
             position: relative;
             padding: 0 20px;
+            margin-bottom: 3rem;
         }
         .content-container {
             max-width: 960px;
@@ -142,6 +146,14 @@
             height: inherit;
             margin: 0 5px;
         }
+        .section-divider {
+            margin: 3rem auto;
+        }
+        /* Chart container spacing */
+        .chart-container {
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
     </style>
 </head>
 
@@ -152,14 +164,12 @@
                 <strong><font size="+8">Cross-Embodiment Generalization via Behavior-Aligned Representations</font></strong> </br>
             </h2>
         </div>
-        <div class="row">
+        <div class="row" style="margin-top: -30px;">
             <div class="col-md-12 text-center authors">
                 <ul class="list-inline">
                 <br>
-                <br>
                 </ul>
             </div>
-            <br>
         </div>
 
         <div class="row">
@@ -193,25 +203,49 @@
             </div>
         </div>
 
-        <div style="width: 90%; float: center; text-align:center; margin: 0 auto">
-            <a href="https://bar-x-anon.github.io/img/BARX/barx_method_v1.png" target="_blank">
-                <figure>
-                    <img src="img/BARX/barx_method_v1.png" class="img-responsive">
-                </figure>
-            </a>
-            <!-- <br> -->
-            <figcaption><b>Left</b>: We consider cross-embodiment datasets of both simulated and real-world robots. We then
-                extract behavior-aligned representations: language motions via heuristics using end effector pose deltas, end-effector traces via segmentation models, and bounding boxes via Grounding DINO. 
-                <b>Right</b>: BARX trains VLAs to predict actions with or without first predicting representations. This enhances transfer from cross-embodiment
-                datasets, without needing representations during inference.</figcaption>
+        <div style="width: 90%; margin: 30px auto 0;">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                
+                <a href="https://bar-x-anon.github.io/img/BARX/barx_method_v2.jpeg" target="_blank" style="display: flex; justify-content: center; width: 100%; margin-top: -60px;"> <!-- margin-top: -80px; -->
+                    <video id="methodVideo" autoplay muted playsinline style="width: 120%; height: auto;"> <!-- Adjust this width percentage to resize the video -->
+                        <source src="img/videos/barx_figures.mp4" type="video/mp4">
+                        <!-- <img src="img/BARX/barx_method_v1.png" alt="BARX method visualization" style="width: 100%; height: auto;"> -->
+                    </video>
+                </a>
+                <div style="margin-top: 0px; text-align: left; width: 100%;">
+                    <p style="font-size: 1.0em; line-height: 1.4; color: #555; font-style: italic;">
+                        <b>Left</b>: We consider cross-embodiment datasets of both simulated and real-world robots. We then
+                        extract behavior-aligned representations: language motions via heuristics using end effector pose deltas, end-effector traces via segmentation models, and bounding boxes via Grounding DINO. 
+                        <b>Right</b>: BARX trains VLAs to predict actions with or without first predicting representations. This enhances transfer from cross-embodiment
+                        datasets, without needing representations during inference.
+                    </p>
+                </div>
+            </div>
         </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const video = document.getElementById('methodVideo');
+                
+                // Remove the loop attribute so we can control replaying
+                video.removeAttribute('loop');
+                
+                // Listen for the video ending
+                video.addEventListener('ended', function() {
+                    // Wait 4 seconds before replaying
+                    setTimeout(function() {
+                        video.play();
+                    }, 3000);
+                });
+            });
+        </script>
         <br>
 
         <div class="row" style="width: 80%; margin: 0 auto;">
             <div class="col-md-12">
                 <h2>Abstract</h2>
                 <p>
-                    Recent progress in large-scale imitation learning for robot manipulation has been driven by leveraging datasets across a wide range of robot embodiments. However, while prior work on cross-embodiment learning has shown signs of positive transfer, achieving significant transfer is often still challenging. In this work, we propose using behavior-aligned representations (e.g., object bounding boxes, language motions, 2D end effector traces) as a scalable means of unifying diverse data across embodiments to enhance transfer. Our approach, BARX, incorporates these representations by simply training vision-language-action (VLA) models to predict them in tandem with actions as a single sequence. Our experiments show that BARX can significantly improve transfer from diverse cross-embodiment datasets to new embodiments. When learning from such datasets in simulation, BARX improves success rate by 13.8% when evaluated zero-shot on unseen embodiments, and by 16.0% when adapting with limited data. BARX is also able to enhance sim-to-real cross-embodiment transfer, improving task completion progress of real robot policies pre-trained on simulation data by 28.3%.
+                    Recent progress in large-scale imitation learning for robot manipulation has been driven by leveraging datasets across a wide range of robot embodiments. However, while prior work on cross-embodiment learning has shown signs of positive transfer, achieving significant transfer is often still challenging. In this work, we propose using behavior-aligned representations (e.g., object bounding boxes, language motions, 2D end effector traces) as a scalable means of unifying diverse data across embodiments to enhance transfer. Our approach, BARX, incorporates these representations by simply training vision-language-action (VLA) models to predict them in tandem with actions as a single sequence. Our experiments show that BARX can significantly improve transfer from diverse cross-embodiment datasets to new embodiments. When learning from such datasets in simulation, BARX improves success rate by <b>13.8%</b> when evaluated zero-shot on unseen embodiments, and by <b>16.0%</b> when adapting with limited data. BARX is also able to enhance sim-to-real cross-embodiment transfer, improving task completion progress of real robot policies pre-trained on simulation data by <b>28.3%</b>.
                 </p>
             </div>
         </div>
@@ -225,7 +259,7 @@
                 <h2 class="title is-3 has-text-centered">Visualizations of Behavior-Aligned Representations</h2>
 
                 <p class="has-text-justified">
-                    These visualizations demonstrate BARX's predicted behavior-aligned representations for real and simulated robots: language motions (green), 2D end-effector traces (yellow), and target object bounding boxes (pink). 
+                    These visualizations demonstrate BARX's predicted behavior-aligned representations for real and simulated robots: <b style="color: #4da72e">language motions</b>, <b style="color: #c6a623">2D end-effector traces</b>, and <b style="color: #c020d8">target object bounding boxes</b>.
                 </p>
                 
                 
@@ -338,7 +372,7 @@
          <!-- Video Carousel Section -->
         <section id="videos" class="section">
             <div class="container is-max-desktop content-container">
-                <h2 class="title is-3 has-text-centered">Results</h2>
+                <h2 class="title is-3 has-text-centered">Adaptation to New Embodiments</h2>
 
                 <p class="has-text-justified">
                     We train models on X-Prior-1000, a large cross-embodiment simulation dataset with three robots in <a href="https://robocasa.ai" target="_blank">RoboCasa</a>: the Kinova, UR5e, and IIWA.
@@ -353,14 +387,15 @@
                     
                     
                     <!-- Simulation Results -->
-                    <h3 class="title is-4 task-title">Simulation Results</h3>
-                    <div style="display: flex; justify-content: center; margin-top: 24px; margin-bottom: 24px;">
-                        <img src="img/adaptation.jpg" alt="Real Results" style="max-width: 70%; height: auto;">
+                    <h3 class="title is-4 task-title">Simulation Adaptation Results</h3>
+                    <div style="display: flex; justify-content: center; margin-top: 40px; margin-bottom: 40px;" class="chart-container">
+                        <img src="img/adaptation_sim.jpeg" alt="Simulation Results" style="max-width: 100%; height: auto;">
                     </div>
                     <p class="has-text-justified">
                         For our simulation experiments, we adapt our models to the Jaco and the Panda.
                         The baselines make progress on the tasks, such as moving the gripper to the target object, but often fail to complete more precise motions like grasping the object in the correct orientation.
                         BARX, on the other hand, can complete these more precise motions with a higher success rate.
+                        We find that BARX improves the success rate over the cross-embodiment baseline on average by <b>16.0%</b>.
                      </p>
                     <div class="task-carousel">
                         <!-- Video Thumbnails - Replace sources with your own videos -->
@@ -419,15 +454,16 @@
                     
 
                     <!-- Real-World Results -->
-                    <h3 class="title is-4 task-title">Real-World Results</h3>
-                    <div style="display: flex; justify-content: center; margin-top: 24px; margin-bottom: 24px;">
-                        <img src="img/real_results.png" alt="Real Results" style="max-width: 70%; height: auto;">
+                    <h3 class="title is-4 task-title">Real-World Adaptation Results</h3>
+                    <div style="display: flex; justify-content: center; margin-top: 40px; margin-bottom: 40px;" class="chart-container">
+                        <img src="img/real_results.png" alt="Real Results" style="max-width: 100%; height: auto;">
                     </div>
                     <p class="has-text-justified">
                         For our real-world experiments, we adapt our models to the ViperX 300 S and the Franka Research 3.
                         This is especially challenging because we have to deal with the sim-to-real gap in addition to the cross-embodiment gap.
                         We found that training with the representations was particularly beneficial for the <i>PnP Sink to Counter</i> task. 
                         The target was difficult to spot in certain locations, so using representations such as bounding boxes helped the model locate the object.
+                        We find that BARX improves the success rate over the cross-embodiment baseline on average by <b>28.3%</b>.
                     </p>
                     <div class="task-block" id="task-2">
                         <div class="task-carousel">
@@ -465,6 +501,27 @@
                     
                     </div>
                 </div>
+                
+                
+                
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <section id="videos" class="section">
+            <div class="container is-max-desktop content-container">
+                <h2 class="title is-3 has-text-centered">Zero-Shot Embodiment Transfer</h2>
+
+                <p class="has-text-justified">
+                    We also see if BARX can help cross-embodiment models transfer to embodiments not seen during training.
+                    When evaluating on unseen embodiments, BARX improves success rate on average by <b>13.8%</b> in simulation compared to the baseline trained on the same dataset without representations.
+                </p>
+                <div style="display: flex; justify-content: center; margin-top: 40px; margin-bottom: 40px;" class="chart-container">
+                    <img src="img/zero_shot.jpg" alt="Sim Zero-Shot Results" style="max-width: 70%; height: auto;">
+                </div>
+
+                
                 
                 
                 
