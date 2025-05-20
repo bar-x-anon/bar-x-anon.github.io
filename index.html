@@ -50,15 +50,6 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
 
     <script src="js/app.js"></script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-52J0PM8XKV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-52J0PM8XKV');
-</script>
 
     <style>
         .nav-pills {
@@ -72,13 +63,34 @@
         }
         h1 {
             font-weight: bold;
+            font-size: 2.5em;
         }
         h2 {
             font-weight: bold;
             text-align: center;
+            font-size: 2.2em;
+        }
+        h3 {
+            font-size: 1.8em;
         }
         h4 {
-            font-size: 23px;
+            font-size: 1.5em;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        .video-caption {
+            margin-top: 8px;
+            text-align: center;
+            font-size: 1.1em;
+            color: #333;
+            min-height: 40px;
+        }
+        .task-title {
+            margin-bottom: 1rem;
+            font-weight: 600;
+            font-size: 1.6em;
         }
         
         /* Carousel Styles */
@@ -117,10 +129,6 @@
             position: relative;
             padding: 0 20px;
         }
-        .task-title {
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
         .content-container {
             max-width: 960px;
             margin: 0 auto;
@@ -141,7 +149,7 @@
     <div class="container" id="main">
         <div class="row">
             <h2 class="col-md-12 text-center">
-                <strong><font size="+6">Cross-Embodiment Generalization via Behavior-Aligned Representations</font></strong> </br>
+                <strong><font size="+8">Cross-Embodiment Generalization via Behavior-Aligned Representations</font></strong> </br>
             </h2>
         </div>
         <div class="row">
@@ -211,25 +219,75 @@
         <br>
         <hr class="section-divider">
 
-        <!-- Video Carousel Section -->
+        <!-- Method Section -->
         <section id="videos" class="section">
             <div class="container is-max-desktop content-container">
-                <h2 class="title is-3 has-text-centered">Real World Rollouts</h2>
+                <h2 class="title is-3 has-text-centered">Visualizations of Behavior-Aligned Representations</h2>
 
                 <p class="has-text-justified">
-                    We show BARX in action on two real world tasks (<i>PnP Counter to Sink</i> and <i>PnP Counter to Sink</i>) and two real-world robots (the ViperX 300 S and the Franka Research 3). 
-                    With BARX, we can adapt a model trained only on cross-embodiment simulation data to these real robots using limited real-world data.
+                    These visualizations demonstrate BARX's predicted behavior-aligned representations for real and simulated robots: language motions (green), 2D end-effector traces (yellow), and target object bounding boxes (pink). 
                 </p>
-                <div style="display: flex; justify-content: center; margin-top: 24px; margin-bottom: 24px;">
-                    <img src="img/real_results.png" alt="Real Results" style="max-width: 70%; height: auto;">
-                </div>
                 
-                <!-- Task 1 -->
+                
+                <!-- Simulation Rollouts -->
                 <div class="task-block" id="task-1">
-                    <h3 class="title is-4 task-title">Predicted Representations for BARX</h3>
-                    <p class="has-text-justified">
-                        These are visualizations of the three behavior-aligned representations predicted by BARX: language motions, 2D end-effector traces, and bounding boxes of the target object. 
-                    </p>
+                    <h3 class="title is-4 task-title">Simulation Rollouts</h3>
+                    <div class="task-carousel">
+                        <!-- Video Thumbnails - Replace sources with your own videos -->
+                        <div class="video-thumb">
+                            <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
+                                <source src="img/videos/barx_sim_rollouts/panda/pnpsinktocounter/panda_carrot_aux_viz_compressed.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-caption">Panda - Carrot - PnP Sink to Counter (1x speed)</div>
+                        </div>
+                        <div class="video-thumb">
+                            <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
+                                <source src="img/videos/barx_sim_rollouts/jaco/pnpsinktocounter/jaco_lemon_pnpsinktocounter_viz_aux.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-caption">Jaco - Lemon - PnP Sink to Counter (1x speed)</div>
+                        </div>
+                        <div class="video-thumb">
+                            <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
+                                <source src="img/videos/barx_sim_rollouts/panda/pnpcountertosink/panda_banana_aux_viz_compressed.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-caption">Panda - Banana - PnP Counter to Sink (1x speed)</div>
+                        </div>
+                        <div class="video-thumb">
+                            <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
+                                <source src="img/videos/barx_sim_rollouts/jaco/pnpsinktocounter/jaco_cucumber_pnpsinktocounter_viz_aux.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-caption">Jaco - Cucumber - PnP Sink to Counter (1x speed)</div>
+                        </div>
+                        <div class="video-thumb">
+                            <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
+                                <source src="img/videos/barx_sim_rollouts/panda/pnpsinktocounter/panda_orange_aux_viz_compressed.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-caption">Panda - Orange - PnP Sink to Counter (1x speed)</div>
+                        </div>
+                        <div class="video-thumb">
+                            <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
+                                <source src="img/videos/barx_sim_rollouts/jaco/pnpcountertosink/jaco_carrot_pnpcountertosink.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-caption">Jaco - Carrot - PnP Counter to Sink (1x speed)</div>
+                        </div>
+                        <div class="video-thumb">
+                            <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
+                                <source src="img/videos/barx_sim_rollouts/panda/pnpcountertosink/panda_can_aux_viz_compressed.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-caption">Panda - Can - PnP Counter to Sink (1x speed)</div>
+                        </div>
+                        <div class="video-thumb">
+                            <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
+                                <source src="img/videos/barx_sim_rollouts/jaco/pnpcountertosink/jaco_lemon_pnpcountertosink_viz_aux.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-caption">Jaco - Lemon - PnP Counter to Sink (1x speed)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Real-World Rollouts -->
+                <div class="task-block" id="task-1">
+                    <h3 class="title is-4 task-title">Real-World Rollouts</h3>
                     
                     <div class="task-carousel">
                         <!-- Video Thumbnails - Replace sources with your own videos -->
@@ -237,80 +295,186 @@
                             <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
                                 <source src="img/videos/barx_real_rollouts/viper/pnpcountertosink/xembod_aux/xembod_aux_viper_drumsticks_pnpcountertosink_viz_aux_compressed.mp4" type="video/mp4">
                             </video>
+                            <div class="video-caption">Viper - Drumsticks - PnP Counter to Sink (1x speed)</div>
                         </div>
                         <div class="video-thumb">
                             <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
                                 <source src="img/videos/barx_real_rollouts/franka/pnpcountertosink/xembod_aux/final_carrot_xembod_aux_success_viz_aux_compressed.mp4" type="video/mp4">
                             </video>
+                            <div class="video-caption">FR3 - Carrot - PnP Counter to Sink (1x speed)</div>
                         </div>
                         <div class="video-thumb">
                             <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
                                 <source src="img/videos/barx_real_rollouts/viper/pnpcountertosink/xembod_aux/xembod_aux_viper_beans_pnpcountertosink_viz_aux_compressed.mp4" type="video/mp4">
                             </video>
+                            <div class="video-caption">Viper - Beans - PnP Counter to Sink (1x speed)</div>
                         </div>
                         <div class="video-thumb">
                             <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
                                 <source src="img/videos/barx_real_rollouts/franka/pnpcountertosink/xembod_aux/final_grapes_xembod_aux_panda_success_viz_aux_compressed.mp4" type="video/mp4">
                             </video>
+                            <div class="video-caption">FR3 - Grapes - PnP Counter to Sink (1x speed)</div>
                         </div>
                         <div class="video-thumb">
                             <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
                                 <source src="img/videos/barx_real_rollouts/viper/pnpsinktocounter/xembod_aux/viper_xembod_aux_pnpsinktocounter_viz_aux_compressed.mp4" type="video/mp4">
                             </video>
+                            <div class="video-caption">Viper - PnP Sink to Counter (1x speed)</div>
                         </div>
                         <div class="video-thumb">
                             <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
                                 <source src="img/videos/barx_real_rollouts/franka/pnpsinktocounter/xembod_aux/xembod_aux_panda_pnpsinktocounter_viz_aux_compressed.mp4" type="video/mp4">
                             </video>
+                            <div class="video-caption">FR3 - PnP Sink to Counter (1x speed)</div>
                         </div>
                     </div>
-                </div>
-
-                
-                
-                <!-- Task 2 -->
-                <div class="task-block" id="task-2">
-                    <h3 class="title is-4 task-title">Method Comparison</h3>
-                    <p class="has-text-justified">
-                        The baselines make progress on the tasks, such as moving the gripper to the target object, but often fail to complete more precise motions like grasping the object in the correct orientation.
-                        BARX, on the other hand, can complete the task with higher success rate with the help of the behavior-aligned representations enabling transfer from diverse simulation data.
-                        Additionally, we found that training with representations was particularly beneficial for the <i>PnP Sink to Counter</i> task, since the bell pepper was hard to spot in some locations, so using a representation like the bounding box aided the model in finding the object.
-                    </p>
-                    
-                    <div class="task-carousel">
-                        <!-- Video Thumbnails - Replace sources with your own videos -->
-                        <div class="video-thumb">
-                            <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
-                                <source src="img/videos/barx_real_rollouts/viper/pnpsinktocounter/ViperX_bell_pepper_comparison_compressed.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="video-thumb">
-                            <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
-                                <source src="img/videos/barx_real_rollouts/franka/pnpcountertosink/franka_grapes_comparison_compressed.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="video-thumb">
-                            <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
-                                <source src="img/videos/barx_real_rollouts/viper/pnpcountertosink/ViperX_beans_comparison_compressed.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="video-thumb">
-                            <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
-                                <source src="img/videos/barx_real_rollouts/franka/pnpcountertosink/FR3_carrot_comparison_compressed.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="video-thumb">
-                            <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
-                                <source src="img/videos/barx_real_rollouts/viper/pnpcountertosink/ViperX_drumsticks_comparison_compressed.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                
                 </div>
                 
             </div>
         </section>
 
+        <hr class="section-divider">
+
+         <!-- Video Carousel Section -->
+        <section id="videos" class="section">
+            <div class="container is-max-desktop content-container">
+                <h2 class="title is-3 has-text-centered">Results</h2>
+
+                <p class="has-text-justified">
+                    We train models on X-Prior-1000, a large cross-embodiment simulation dataset with three robots in <a href="https://robocasa.ai" target="_blank">RoboCasa</a>: the Kinova, UR5e, and IIWA.
+                    Then we adapt the models to new robots, with small amounts of embodiment-specific data.
+                    In these experiments, we find that training with both cross-embodiment priors and behavior-aligned representations yields the best results.
+                    We train and test all models on the <i>PnP Counter to Sink</i> and <i>PnP Sink to Counter</i> tasks.
+                </p>
+                
+
+                <!-- Task 2 -->
+                <div class="task-block" id="task-2">
+                    
+                    
+                    <!-- Simulation Results -->
+                    <h3 class="title is-4 task-title">Simulation Results</h3>
+                    <div style="display: flex; justify-content: center; margin-top: 24px; margin-bottom: 24px;">
+                        <img src="img/adaptation.jpg" alt="Real Results" style="max-width: 70%; height: auto;">
+                    </div>
+                    <p class="has-text-justified">
+                        For our simulation experiments, we adapt our models to the Jaco and the Panda.
+                        The baselines make progress on the tasks, such as moving the gripper to the target object, but often fail to complete more precise motions like grasping the object in the correct orientation.
+                        BARX, on the other hand, can complete these more precise motions with a higher success rate.
+                     </p>
+                    <div class="task-carousel">
+                        <!-- Video Thumbnails - Replace sources with your own videos -->
+                        <div class="video-thumb">
+                            <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
+                                <source src="img/videos/barx_sim_rollouts/jaco/pnpcountertosink/pickle_pnpcountertosink_jaco_4x_comparison_compressed.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-caption">Jaco - Cucumber - PnP Counter to Sink (4x speed)</div>
+                        </div>
+                        <div class="video-thumb">
+                            <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
+                                <source src="img/videos/barx_sim_rollouts/panda/pnpcountertosink/apple_pnpcountertosink_panda_4x_comparison_compressed.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-caption">Panda - Apple - PnP Counter to Sink (4x speed)</div>
+                        </div>
+                        <div class="video-thumb">
+                            <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
+                                <source src="img/videos/barx_sim_rollouts/jaco/pnpsinktocounter/banana_pnpsinktocounter_jaco_4x_comparison_compressed.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-caption">Jaco - Banana - PnP Sink to Counter (4x speed)</div>
+                        </div>
+                        <div class="video-thumb">
+                            <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
+                                <source src="img/videos/barx_sim_rollouts/panda/pnpsinktocounter/carrot_pnpsinktocounter_panda_4x_comparison_compressed.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-caption">Panda - Carrot - PnP Sink to Counter (4x speed)</div>
+                        </div>
+                        <!--second iteration-->
+                        <div class="video-thumb">
+                            <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
+                                <source src="img/videos/barx_sim_rollouts/jaco/pnpcountertosink/lemon_pnpcountertosink_jaco_4x_comparison_compressed.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-caption">Jaco - Lemon - PnP Counter to Sink (4x speed)</div>
+                        </div>
+                        <div class="video-thumb">
+                            <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
+                                <source src="img/videos/barx_sim_rollouts/panda/pnpcountertosink/banana_pnpcountertosink_panda_4x_comparison_compressed.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-caption">Panda - Banana - PnP Counter to Sink (4x speed)</div>
+                        </div>
+                        <div class="video-thumb">
+                            <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
+                                <source src="img/videos/barx_sim_rollouts/jaco/pnpsinktocounter/lemon_pnpsinktocounter_jaco_4x_comparison_compressed.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-caption">Jaco - Lemon - PnP Sink to Counter (4x speed)</div>
+                        </div>
+                        <div class="video-thumb">
+                            <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
+                                <source src="img/videos/barx_sim_rollouts/panda/pnpsinktocounter/orange_pnpsinktocounter_panda_4x_comparison_compressed.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-caption">Panda - Orange - PnP Sink to Counter (4x speed)</div>
+                        </div>
+
+                    </div>
+                    
+                    
+
+                    <!-- Real-World Results -->
+                    <h3 class="title is-4 task-title">Real-World Results</h3>
+                    <div style="display: flex; justify-content: center; margin-top: 24px; margin-bottom: 24px;">
+                        <img src="img/real_results.png" alt="Real Results" style="max-width: 70%; height: auto;">
+                    </div>
+                    <p class="has-text-justified">
+                        For our real-world experiments, we adapt our models to the ViperX 300 S and the Franka Research 3.
+                        This is especially challenging because we have to deal with the sim-to-real gap in addition to the cross-embodiment gap.
+                        We found that training with the representations was particularly beneficial for the <i>PnP Sink to Counter</i> task. 
+                        The target was difficult to spot in certain locations, so using representations such as bounding boxes helped the model locate the object.
+                    </p>
+                    <div class="task-block" id="task-2">
+                        <div class="task-carousel">
+                            <div class="video-thumb">
+                                <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
+                                    <source src="img/videos/barx_real_rollouts/viper/pnpsinktocounter/ViperX_bell_pepper_comparison_2x_new_name_compressed.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-caption">Viper - Bell Pepper - PnP Sink to Counter (2x speed)</div>
+                            </div>
+                            <div class="video-thumb">
+                                <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
+                                    <source src="img/videos/barx_real_rollouts/franka/pnpcountertosink/FR3_grapes_comparison_2x_new_name_compressed.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-caption">FR3 - Grapes - PnP Counter to Sink (2x speed)</div>
+                            </div>
+                            <div class="video-thumb">
+                                <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
+                                    <source src="img/videos/barx_real_rollouts/viper/pnpcountertosink/ViperX_beans_comparison_2x_new_name_compressed.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-caption">Viper - Beans - PnP Counter to Sink (2x speed)</div>
+                            </div>
+                            <div class="video-thumb">
+                                <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
+                                    <source src="img/videos/barx_real_rollouts/franka/pnpcountertosink/FR3_carrot_comparison_2x_new_name_compressed.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-caption">FR3 - Carrot - PnP Counter to Sink (2x speed)</div>
+                            </div>
+                            <div class="video-thumb">
+                                <video class="thumb-video" autoplay loop muted playsinline preload="metadata">
+                                    <source src="img/videos/barx_real_rollouts/viper/pnpcountertosink/ViperX_drumsticks_comparison_2x_new_name_compressed.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-caption">Viper - Drumsticks - PnP Counter to Sink (2x speed)</div>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+
+        
         <!-- <div class="row"> -->
             <!-- <div class="col-md-12"> -->
                 <!-- <h3> -->
