@@ -118,7 +118,7 @@
         }
         .video-thumb {
             margin: 0 5px; /* Let Slick handle horizontal spacing primarily */
-            max-width: 500px; /* Set maximum width for videos */
+            max-width: 1000px; /* Set maximum width for videos */
         }
         .video-thumb video {
             width: 100%; /* Video fills its container */
@@ -138,7 +138,7 @@
             margin-bottom: 3rem;
         }
         .content-container {
-            max-width: 960px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
         }
@@ -398,10 +398,10 @@
                 <h2 class="title is-3 has-text-centered">Adaptation to New Embodiments</h2>
 
                 <p class="has-text-justified">
-                    We train models on X-Prior-1000, a large cross-embodiment simulation dataset with three robots in <a href="https://robocasa.ai" target="_blank">RoboCasa</a>: the Kinova, UR5e, and IIWA.
+                    We train models on X-Prior-300 and X-Prior-1000, a medium- and large-scale cross-embodiment simulation dataset with three robots in <a href="https://robocasa.ai" target="_blank">RoboCasa</a>: the Kinova, UR5e, and IIWA.
                     Then we adapt the models to new robots, with small amounts of embodiment-specific data.
                     In these experiments, we find that training with both cross-embodiment priors and behavior-aligned representations yields the best results.
-                    We train and test all models on the <i>PnP Counter to Sink</i> and <i>PnP Sink to Counter</i> tasks.
+                    We train and test all models on the <i>PnP Counter to Sink</i>, <i>PnP Sink to Counter</i>, <i>Turn On Sink Faucet</i>, and <i>Flip Mug Upright</i> tasks.
                 </p>
                 
 
@@ -412,13 +412,16 @@
                     <!-- Simulation Results -->
                     <h3 class="title is-4 task-title">Simulation Adaptation Results</h3>
                     <div style="display: flex; justify-content: center; margin-top: 40px; margin-bottom: 40px;" class="chart-container">
-                        <img src="img/adaptation_sim.jpeg" alt="Simulation Results" style="max-width: 100%; height: auto;">
+                        <img src="img/adaption_4_tasks.jpg" alt="Simulation Results" style="max-width: 100%; height: auto;">
                     </div>
                     <p class="has-text-justified">
-                        For our simulation experiments, we adapt our models to the Jaco and the Panda.
+                        For our simulation experiments, we adapt our models to the Jaco, the Panda with the Robotiq Gripper, and the Panda with the original Panda Gripper.
+                        We found that represenations are generally more impactful when scaling up prior data (except for the <i>Turn On Sink Faucet</i> task).
+                        Specifically, for all tasks except the <i>Turn On Sink Faucet</i>, the overall improvement from training with representations is <b>+5.0%</b> when using no prior data, <b>+15.0%</b> when pretraining on X-Prior-300, and <b>+19.0%</b> when pretraining X-Prior-1000.
+                        We hypothesize this because the <i>Turn On Sink Faucet</i> task has less variation than our other tasks, which
+                        involve manipulating a variety of objects in different poses, while there is not as much variation in the poses and types of faucets.
                         The baselines make progress on the tasks, such as moving the gripper to the target object, but often fail to complete more precise motions like grasping the object in the correct orientation.
-                        BARX, on the other hand, can complete these more precise motions with a higher success rate.
-                        BARX improves the success rate over the cross-embodiment baseline on average by <b>16.0%</b>.
+                        
                      </p>
                     <div class="task-carousel">
                         <!-- Video Thumbnails - Replace sources with your own videos -->
@@ -471,10 +474,7 @@
                             </video>
                             <div class="video-caption">Panda - Orange - PnP Sink to Counter (4x speed)</div>
                         </div>
-
                     </div>
-                    
-                    
 
                     <!-- Real-World Results -->
                     <h3 class="title is-4 task-title">Real-World Adaptation Results</h3>
