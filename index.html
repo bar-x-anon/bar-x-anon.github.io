@@ -414,7 +414,7 @@
                     <!-- Simulation Results -->
                     <h3 class="title is-4 task-title">Simulation Adaptation Results</h3>
                     <div style="display: flex; justify-content: center; margin-top: 40px; margin-bottom: 40px;" class="chart-container">
-                        <img src="img/adaption_4_tasks.jpg" alt="Simulation Results" style="max-width: 100%; height: auto;">
+                        <img src="img/adaption_4_tasks.jpg" alt="Simulation Results" style="max-width: 105%; height: auto;">
                     </div>
                     <p class="has-text-justified">
                         For our simulation experiments, we adapt our models to the Jaco, the Panda with the Robotiq Gripper, and the Panda with the original Panda Gripper.
@@ -532,28 +532,47 @@
             </div>
         </section>
 
-        <!-- <hr class="section-divider">
+        <hr class="section-divider">
 
         <section id="videos" class="section">
             <div class="container is-max-desktop content-container">
-                <h2 class="title is-3 has-text-centered">Zero-Shot Embodiment Transfer</h2>
+                <h2 class="title is-3 has-text-centered">Representation Inference</h2>
 
-                <p class="has-text-justified">
-                    We also see if BARX can help cross-embodiment models transfer to embodiments not seen during training.
-                    When evaluating on unseen embodiments, BARX improves success rate on average by <b>13.8%</b> in simulation compared to the baseline trained on the same dataset without representations.
-                </p>
                 <div style="display: flex; justify-content: center; margin-top: 40px; margin-bottom: 40px;" class="chart-container">
-                    <img src="img/zero_shot.jpg" alt="Sim Zero-Shot Results" style="max-width: 70%; height: auto;">
+                    <img src="img/eval_all_1000_2by2_repr_inference.jpg" alt="Representation Inference" style="max-width: 100%; height: auto;">
                 </div>
 
-                
-                
-                
+                <p class="has-text-justified">
+                    We compare inference of Joint Reps models by either only predicting actions, or first predicting a representation and then actions.
+                    Predicting representations can help in some situations, but the impact is usually not substantial.
+                </p>
                 
             </div>
         </section>
 
-        <hr class="section-divider"> -->
+        <hr class="section-divider">
+
+
+        <section id="videos" class="section">
+            <div class="container is-max-desktop content-container">
+                <h2 class="title is-3 has-text-centered">Action-Free Transfer</h2>
+
+                <div style="display: flex; justify-content: center; margin-top: 40px; margin-bottom: 40px;" class="chart-container">
+                    <img src="img/action_free.jpg" alt="Action-Free Transfer" style="max-width: 100%; height: auto;">
+                </div>
+
+                <p class="has-text-justified">
+                    We find that behavior-aligned representations can leverage
+                    action-free prior datasets to improve over learning with no prior
+                    dataset, as well as using the full prior dataset with actions but
+                    without representations. However, performance is slightly worse
+                    than using representations with the prior dataset with actions.
+                </p>
+                
+            </div>
+        </section>
+
+        <hr class="section-divider">
 
         
 
